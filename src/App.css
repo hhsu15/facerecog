@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center
+}
+
+.particles {
+  position:fixed;
+  top: 0;
+  right:0;
+  bottom:0;
+  left:0;
+  /*tells you what layers you want your images to be on
+  set it -1 so it will be at the background*/
+  z-index:-1; 
+}
