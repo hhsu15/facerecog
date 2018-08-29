@@ -22,6 +22,7 @@ const particlesOptions = {
   }
 }
 
+
 const API_KEY = 'b6ead27a8df944ca878f85c0e51c4dce'
 const app = new Clarifai.App({apiKey: API_KEY});
 
@@ -36,6 +37,14 @@ class App extends Component {
       isSignIn:false
     }
   }
+
+  componentDidMount() {
+    fetch('http://localhost:3000')
+      .then(response => response.json())
+      .then(console.log)
+  }
+
+
   
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box
