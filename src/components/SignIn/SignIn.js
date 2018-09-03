@@ -19,7 +19,7 @@ constructor(props) {
 	}
 
     onSubmitSignIn = () => {
-    	//console.log(this.state)
+    	console.log('is it me that you are looking for',this.state)
     	fetch('http://localhost:3000/signin/',{
     		method: 'post',
     		headers: {'Content-Type':'application/json'},
@@ -29,12 +29,12 @@ constructor(props) {
     		})
     	})
     		.then(response => response.json())
-    		.then(data => {
-    			if (data === 'success') {
+    		.then(user => {
+    			if (user.id) {
+    				this.props.loadUser(user)
     				this.props.onRouteChange('home')
     			}
-    		})
-    	
+    		})	
     }
 
 	render() {
